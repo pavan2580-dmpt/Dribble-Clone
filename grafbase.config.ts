@@ -1,6 +1,6 @@
-import { graph, config } from '@grafbase/sdk';
+import {g, auth, config } from '@grafbase/sdk';
 
-const g = graph.Standalone();
+
 
 const User = g.model('User', {
   name : g.string(),
@@ -9,7 +9,7 @@ const User = g.model('User', {
   description :g.string().optional(),
   githubUrl : g.url().optional(),
   linkedinUrl :g.url().optional(),
-  projects:g.relation(()=>Project.list().optional()),
+  projects:g.relation(()=>Project).list().optional(),
 });
 
 
@@ -26,10 +26,6 @@ const Project = g.model('Project',{
 
 
 export default config({
-  graph: g,
-  auth: {
-    rules: (rules) => {
-      rules.public();
-    },
-  },
+  schema: g
+
 });
