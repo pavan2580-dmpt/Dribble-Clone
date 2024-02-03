@@ -1,6 +1,4 @@
-import {g, auth, config } from '@grafbase/sdk';
-
-
+import { g, config } from '@grafbase/sdk'
 
 const User = g.model('User', {
   name : g.string(),
@@ -27,5 +25,4 @@ const Project = g.model('Project',{
 
 export default config({
   schema: g
-
-});
+})
