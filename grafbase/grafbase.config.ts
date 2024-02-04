@@ -1,4 +1,4 @@
-import { g, config } from '@grafbase/sdk'
+import { g,auth, config } from '@grafbase/sdk'
 
 const User = g.model('User', {
   name : g.string(),
